@@ -287,7 +287,8 @@ class RedmineImporter(object):
 
     def _get_yt_issue_id(self, issue, as_number_in_project=False):
         project_id = self._projects['by_iid']["4"].identifier
-        new_id = self._max_issue_ids.get(project_id, 0) + 1
+        new_id = issue.id
+        # new_id = self._max_issue_ids.get(project_id, 0) + 1
         rid = int(issue.id)
         if rid not in self._issue_ids:
             self._max_issue_ids[project_id] = new_id
