@@ -117,8 +117,8 @@ class RedmineImporter(object):
             print 'FATAL:', e
             sys.exit(1)
 
-        print '===> Import Roles'
-        self._import_roles()
+        # print '===> Import Roles'
+        # self._import_roles()
 
         for project in projects2import.values():
             self._import_project(project)
@@ -183,7 +183,7 @@ class RedmineImporter(object):
                 project_id, project_name, project_desc, self._project_lead)
             print 'Project successfully created'
         print 'Import project members...'
-        self._import_members(project)
+        # self._import_members(project)
         print 'Import issues...'
         self._import_issues(project)
 
