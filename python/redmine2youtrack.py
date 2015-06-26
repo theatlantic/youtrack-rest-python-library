@@ -78,6 +78,9 @@ def main():
 
 
 def to_unixtime(time_string):
+    if time_string.endswith(" UTC"):
+        time_string = time_string[:-4]
+
     tz_diff = 0
     if len(time_string) == 10:
         dt = datetime.strptime(time_string, '%Y-%m-%d')
