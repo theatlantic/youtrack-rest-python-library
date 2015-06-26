@@ -364,7 +364,7 @@ class RedmineImporter(object):
 
     def _import_issues(self, project, limit=CHUNK_SIZE):
         project_id = project.identifier
-        offset = 0
+        offset = 130
         assignee_group = self._get_assignee_group_name(project_id)
         while True:
             issues = self._source.get_project_issues(project.id, limit, offset)
