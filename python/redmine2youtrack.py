@@ -370,9 +370,14 @@ class RedmineImporter(object):
             issues = self._source.get_project_issues(project.id, limit, offset)
             if not issues:
                 break
-            issues = [issue for issue in issues if issue.project.id == project.id]
-            self._target.importIssues(project_id, assignee_group,
-                [self._make_issue(issue, project_id) for issue in issues])
+            # issues = [issue for issue in issues if issue.project.id == project.id]
+            # self._target.importIssues(project_id, assignee_group,
+            #     [self._make_issue(issue, project_id) for issue in issues])
+
+            for issue in issues:
+                print "Doing %s" % issue.id
+                self._target.importIssues(project_id, assignee_group, [self._make_issue(issue, project_id)])
+
             for issue in issues:
                 self._collect_relations(issue)
                 self._add_attachments(issue)
